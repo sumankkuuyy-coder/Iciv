@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mobile View</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            height: 100dvh;
+            overflow: hidden;
+            background-color: #000; /* background black rakha hai taaki borders match ho sakein */
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        /* Full screen touch area */
+        .redirect-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            outline: none;
+        }
+
+        /* Zoom kam karne ke liye contain background/fit use kiya gaya hai */
+        .full-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain; /* Isse image cut nahi hogi aur kam zoomed dikhegi */
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="buriya.html" class="redirect-wrapper">
+        <img src="https://i.ibb.co/vCxNYZ21/IMG-20261024-131956.jpg" alt="Logo" class="full-img">
+    </a>
+
+    <script>
+        // Screen par kahin bhi touch ya click hone par redirect karega
+        document.addEventListener('click', function() {
+            window.location.href = 'buriya.html';
+        });
+
+        // Touch devices ke liye instant redirect
+        document.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            window.location.href = 'buriya.html';
+        }, { passive: false });
+    </script>
+
+</body>
+</html>
